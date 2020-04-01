@@ -1,7 +1,7 @@
-#include "main.hpp"
-#include <iostream>
 #include "osm.cpp"
-#include "osm.h"
+#include <iostream>
+
+
 
 int main() {
 	std::cout << osm_operation_time(100000) << '\n';

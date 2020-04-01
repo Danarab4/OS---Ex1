@@ -9,7 +9,6 @@
  */
 void empty_function()
 {
-	;
 }
 
 /* Time measurement function for a simple arithmetic operation.
@@ -26,16 +25,16 @@ double osm_operation_time(unsigned int iterations)
 		return -1;
 	}
 	double t1 = curr_time.tv_usec;
-	iterations = iterations / 5;
-	int var;
-	for (int i = 0; i < iterations; ++i)
+	unsigned int var = 0;
+	while (var < iterations)
 	{
-		var = i + i;
-		var = i + i;
-		var = i + i;
-		var = i + i;
-		var = i + i;
+		var += 1;
+		var += 1;
+		var += 1;
+		var += 1;
+		var += 1;
 	}
+
 	retval = gettimeofday(&curr_time, NULL);
 	double t2 = curr_time.tv_usec;
 	if (retval != -1)
@@ -61,7 +60,7 @@ double osm_function_time(unsigned int iterations)
 	}
 	double t1 = curr_time.tv_usec;
 	iterations = iterations / 5;
-	for (int i = 0; i < iterations; ++i)
+	for (unsigned int i = 0; i < iterations; ++i)
 	{
 		empty_function();
 		empty_function();
@@ -95,7 +94,7 @@ double osm_syscall_time(unsigned int iterations)
 	}
 	double t1 = curr_time.tv_usec;
 	iterations = iterations / 5;
-	for (int i = 0; i < iterations; ++i)
+	for (unsigned int i = 0; i < iterations; ++i)
 	{
 		OSM_NULLSYSCALL;
 		OSM_NULLSYSCALL;
