@@ -20,7 +20,7 @@ permissions to Other. Afterwards the program creates a new file in the "Welcome/
 "OS2020" with write-only permissions and using the 666 flag, grants read and write permissions to
 everyone.
 Then, the program checks OS2020's status using the "fstat" command. Then, it writes :
-"If you haven't read the course guidelines yet --- do it right now!\n<arguement>", where <argument>
-is the argument given to the program.
+"<username>\nIf you haven't read the course guidelines yet --- do it right now!\n<arguement>", where
+<argument> is the argument given to the program and <username> is the user name.
 Finally, the program closes the file, releases it's handle and tries to delete it (using the
 unlink command) and deletes the directories it have created.
