@@ -4,6 +4,7 @@
 #include "osm.h"
 
 int main() {
-	std::cout << osm_operation_time(10000000);
-//	std::cout  << "1" ;
+	std::cout << osm_operation_time(10000000) << '\n';
+	std::cout <<osm_function_time(10000000) << '\n';
+	std::cout <<osm_syscall_time(10000000) << '\n';
 };
