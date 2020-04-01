@@ -1,0 +1,26 @@
+drordod, danarab4
+Dror Bar (203523352), Dana Rabinovich (313246654)
+EX: 1
+
+FILES:
+myfile.c -- a file with some code
+myfile.h -- a file with some headers
+
+REMARKS:
+These are some remarks that
+I want the graders to know
+about this submission.
+
+ANSWERS:
+
+Assignment 1:
+The program accepts one argument and creates the directories "Welcome" and "Welcome/To" with the
+permissions 0775: read, write and execute to the User and the Group and only read and execute
+permissions to Other. Afterwards the program creates a new file in the "Welcome/To" directory called
+"OS2020" with write-only permissions and using the 666 flag, grants read and write permissions to
+everyone.
+Then, the program checks OS2020's status using the "fstat" command. Then, it writes :
+"If you haven't read the course guidelines yet --- do it right now!\n<arguement>", where <argument>
+is the argument given to the program.
+Finally, the program closes the file, releases it's handle and tries to delete it (using the
+unlink command) and deletes the directories it have created.
