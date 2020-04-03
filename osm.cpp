@@ -39,7 +39,7 @@ double osm_operation_time(unsigned int iterations)
 	double t2 = curr_time.tv_usec;
 	if (retval != -1)
 	{
-		return ((t2 - t1) / iterations) * pow(10,9);
+		return ((t2 - t1) / (iterations/5)) * pow(10,9);
 	}
 	return -1;
 }
