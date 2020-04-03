@@ -1,7 +1,7 @@
 #include "osm.h"
 #include <sys/time.h>
-#include <iostream>
 #include <cmath>
+#include <cstddef>
 
 
 /*
@@ -11,8 +11,12 @@ void empty_function()
 {
 }
 
-double timeval_to_nano(timeval time_obj){
-	return time_obj.tv_sec * pow(10,9) + time_obj.tv_usec * pow(10,3);
+/*
+ * Convert a timeval struct to a total nanoseconds
+ */
+double timeval_to_nano(timeval time_obj)
+{
+	return time_obj.tv_sec * pow(10, 9) + time_obj.tv_usec * pow(10, 3);
 }
 
 /* Time measurement function for a simple arithmetic operation.
@@ -24,7 +28,12 @@ double osm_operation_time(unsigned int iterations)
 	timeval start_time, end_time;
 	int retval;
 	double diff;
-	unsigned int var = 0;
+	unsigned int i = 0;
+	int var1=0;
+	int var2=0;
+	int var3=0;
+	int var4=0;
+	int var5=0;
 
 	retval = gettimeofday(&start_time, NULL);
 	if (retval == -1 or iterations == 0)
@@ -32,13 +41,13 @@ double osm_operation_time(unsigned int iterations)
 		return -1;
 	}
 
-	for (unsigned int i = 0; i < iterations;)
+	for (; i < iterations; i=i+5)
 	{
-		i += 1;
-		i += 1;
-		i += 1;
-		i += 1;
-		i += 1;
+		var1 += 1;
+		var2 += 1;
+		var3 += 1;
+		var4 += 1;
+		var5 += 1;
 	}
 
 	retval = gettimeofday(&end_time, NULL);
@@ -60,7 +69,8 @@ double osm_function_time(unsigned int iterations)
 {
 	timeval start_time, end_time;
 	int retval;
-	double diff ;
+	double diff;
+	unsigned int i = 0;
 
 	retval = gettimeofday(&start_time, NULL);
 	if (retval == -1 or iterations == 0)
@@ -68,7 +78,7 @@ double osm_function_time(unsigned int iterations)
 		return -1;
 	}
 
-	for (unsigned int i = 0; i < iterations; i=i+5)
+	for (; i < iterations; i = i + 5)
 	{
 		empty_function();
 		empty_function();
@@ -96,13 +106,14 @@ double osm_syscall_time(unsigned int iterations)
 	timeval start_time, end_time;
 	double diff;
 	int retval;
+	unsigned int i = 0;
 	retval = gettimeofday(&start_time, NULL);
 	if (retval == -1 or iterations == 0)
 	{
 		return -1;
 	}
 
-	for (unsigned int i = 0; i < iterations; i=i+5)
+	for (; i < iterations; i = i + 5)
 	{
 		OSM_NULLSYSCALL;
 		OSM_NULLSYSCALL;
